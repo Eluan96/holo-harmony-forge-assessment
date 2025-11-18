@@ -37,13 +37,13 @@ const Navbar = () => {
   };
 
   return (
-    //  -- THE ONLY CHANGE IS ON THIS LINE --
+    
     <nav className="bg-white shadow-sm sticky top-0 z-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="bg-gradient-to-r from-blue-800 to-cyan-400 p-2 rounded-xl">
+              <div className="bg-gradient-to-r from-blue-800 to-teal-400 p-2 rounded-xl">
                 <span className="text-white font-bold text-md">AT</span>
               </div>
               <div>
@@ -57,25 +57,25 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               <Link
-                href="/features"
+                href="#platform-features"
                 className="text-[#002E5C] hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
               >
                 Features
               </Link>
               <Link
-                href="/how-it-works"
+                href="#how-it-works"
                 className="text-[#002E5C] hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
               >
                 How It Works
               </Link>
               <Link
-                href="/benefits"
+                href="#benefits"
                 className="text-[#002E5C] hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
               >
                 Benefits
               </Link>
               <Link
-                href="/contact"
+                href="#contacts"
                 className="text-[#002E5C] hover:bg-gray-100 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
               >
                 Contact

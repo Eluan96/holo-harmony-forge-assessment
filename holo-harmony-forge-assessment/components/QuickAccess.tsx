@@ -1,67 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-
-// SVG Icon Components (can be in the same file or imported)
-const DocumentIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-8 w-8 text-white"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-    />
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-    />
-  </svg>
-);
-
-const SearchIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-8 w-8 text-white"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-    />
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-8 w-8 text-white"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-    />
-  </svg>
-);
+import { FileCheck } from "lucide-react";
+import { Search } from "lucide-react";
+import { CircleCheckBig } from "lucide-react";
 
 const accessPoints = [
   {
-    icon: <DocumentIcon />,
+    icon: <FileCheck color="white" size={30} />,
     iconBgClass: "bg-blue-600",
     title: "Apply to Trade Across Africa",
     description:
@@ -69,7 +15,7 @@ const accessPoints = [
     buttonText: "Apply Now",
   },
   {
-    icon: <SearchIcon />,
+    icon: <Search color="white" size={30} />,
     iconBgClass: "from-cyan-500 to-blue-500",
     title: "Find Verified Nigerian Businesses",
     description:
@@ -77,7 +23,7 @@ const accessPoints = [
     buttonText: "Browse Directory",
   },
   {
-    icon: <CheckIcon />,
+    icon: <CircleCheckBig color="white" size={30} />,
     iconBgClass: "from-green-400 to-yellow-500",
     title: "Check AfCFTA Compliance",
     description:
@@ -110,10 +56,10 @@ const QuickAccess = () => {
   };
 
   return (
-    <section className="py-20">
+    <section id="quick-access" className="py-20 shadow-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
+          <h2 className="text-4xl font-extrabold text-[#002E5C] sm:text-5xl">
             Quick Access
           </h2>
           <p className="mt-4 text-xl text-gray-600">
@@ -141,13 +87,13 @@ const QuickAccess = () => {
               >
                 {point.icon}
               </div>
-              <h3 className="mt-6 text-2xl font-bold text-gray-900">
+              <h3 className="mt-6 text-2xl font-bold text-[#002E5C]">
                 {point.title}
               </h3>
               <p className="mt-4 text-base text-gray-600 flex-grow">
                 {point.description}
               </p>
-              <button className="mt-8 w-full bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-800 transition-colors duration-300">
+              <button className="text-sm mt-8 w-full bg-[#00429E] text-white font-semibold py-1.5 px-6 rounded-lg hover:bg-blue-800 transition-colors duration-300">
                 {point.buttonText}
               </button>
             </motion.div>
