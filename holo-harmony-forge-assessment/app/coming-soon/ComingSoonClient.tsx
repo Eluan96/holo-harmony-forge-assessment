@@ -1,23 +1,28 @@
-"use client"; 
+"use client";
 
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { motion, Variants } from "framer-motion";
-
+import { MoveLeft } from "lucide-react";
+import { Loader } from "lucide-react";
 
 const RocketIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-    </svg>
-);
-const ArrowLeftIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-    </svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-12 w-12 text-white"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={1.5}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+    />
+  </svg>
 );
 
-
-// This component contains all the previous logic
 const ComingSoonClient = () => {
   const searchParams = useSearchParams();
   const page = searchParams.get("page") || "This Page";
@@ -77,7 +82,7 @@ const ComingSoonClient = () => {
               href="/"
               className="inline-flex items-center gap-x-2 bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors"
             >
-              <ArrowLeftIcon />
+              <MoveLeft />
               <span>Go Back Home</span>
             </Link>
           </motion.div>
