@@ -1,111 +1,148 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { ArrowRight, Globe, TrendingUp, HelpCircle, CheckCircle } from "lucide-react";
 
-// --- Placeholder Survey Data ---
-const surveyQuestions = [
-  {
-    question: "Do you have a registered business in Nigeria?",
-    // The first option is the "correct" one for a 100% score
-    options: ["Yes, it is registered with the CAC.", "No, not yet."],
-  },
-  {
-    question: "Are your products or services ready for export?",
-    options: ["Yes, we meet all quality standards.", "We are still in development."],
-  },
-  {
-    question: "Do you have a basic understanding of export documentation?",
-    options: ["Yes, I am familiar with the requirements.", "No, I need guidance."],
-  },
-];
-
-const SurveyPage = () => {
-  const router = useRouter();
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<number[]>([]);
-
-  const progress = ((currentQuestionIndex) / surveyQuestions.length) * 100;
-
-  const handleAnswer = (optionIndex: number) => {
-    const newAnswers = [...answers, optionIndex];
-    setAnswers(newAnswers);
-
-    if (currentQuestionIndex < surveyQuestions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      // End of survey, calculate score and navigate
-      calculateAndSubmit(newAnswers);
-    }
-  };
-
-  const calculateAndSubmit = (finalAnswers: number[]) => {
-    // Score is 100 if all answers are the first option (index 0), otherwise 0.
-    const isPerfect = finalAnswers.every((ans) => ans === 0);
-    const score = isPerfect ? 100 : 0;
-    router.push(`/results?score=${score}`);
-  };
-
-  const currentQuestion = surveyQuestions[currentQuestionIndex];
-
+// --- Main Component ---
+const SurveyIntroPage = () => {
   return (
-    <main className="bg-gray-50 flex items-center justify-center min-h-screen py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="bg-white rounded-2xl shadow-xl p-8 sm:p-12 w-full max-w-2xl"
-      >
-        {/* Progress Bar */}
-        <div>
-          <p className="text-sm font-medium text-gray-600">
-            Step {currentQuestionIndex + 1} of {surveyQuestions.length}
+    <main className="bg-[#F4F8FF] py-16 sm:py-24">
+      <div className="max-w-4xl mx-auto px-6 space-y-20">
+        {/* --- 1. Header Section --- */}
+        <motion.section
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="inline-flex items-center gap-x-2 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
+            <Globe size={16} />
+            <span>African Digital Trade Portal</span>
+          </div>
+          <h1 className="mt-6 text-4xl sm:text-5xl font-extrabold text-gray-900">
+            AfCFTA Readiness Survey
+          </h1>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+            Before you register, please complete this 12-question readiness
+            assessment. It helps us determine if your business is fully prepared
+            to participate in AfCFTA trade.
           </p>
-          <div className="mt-2 bg-gray-200 rounded-full h-2 w-full">
-            <motion.div
-              className="bg-blue-600 rounded-full h-2"
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+          <div className="mt-8 inline-flex items-center gap-4 bg-yellow-100/80 border border-yellow-300 p-4 rounded-xl">
+            <div className="bg-yellow-400 p-2 rounded-full">
+              <CheckCircle size={20} className="text-white" />
+            </div>
+            <div>
+              <p className="text-sm font-medium text-yellow-800">Required Score</p>
+              <p className="text-lg font-bold text-yellow-900">100%</p>
+            </div>
+          </div>
+          <div className="mt-8">
+            <Link
+              href="/survey/questions"
+              className="inline-flex items-center justify-center gap-x-2 bg-[#00429E] text-white font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-blue-800 transition-colors"
+            >
+              <span>Begin Assessment</span>
+              <ArrowRight size={20} />
+            </Link>
+          </div>
+        </motion.section>
+
+        {/* --- 2. Features Section --- */}
+        <motion.section
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+        >
+          <FeatureCard
+            icon={<Globe size={24} className="text-blue-600" />}
+            title="Continental Trade Access"
+            description="Join the largest free trade area in the world and access markets across 54 African countries."
+          />
+          <FeatureCard
+            icon={<TrendingUp size={24} className="text-green-600" />}
+            title="Business Growth"
+            description="Expand your business reach, increase revenue streams, and build international partnerships."
+          />
+          <FeatureCard
+            icon={<HelpCircle size={24} className="text-yellow-600" />}
+            title="Compliance Support"
+            description="Get comprehensive guidance on meeting all regulatory requirements for cross-border trade."
+          />
+        </motion.section>
+
+        {/* --- 3. How It Works Section --- */}
+        <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+        >
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900">How It Works</h2>
+            <p className="mt-2 text-gray-600">Three simple steps to get started</p>
+          </div>
+          <div className="mt-12 space-y-4 max-w-2xl mx-auto">
+            <HowItWorksStep
+              step="1"
+              title="Complete the Assessment"
+              description="Answer 12 questions about your business readiness for AfCFTA trade. Each question takes only seconds to answer."
+            />
+            <HowItWorksStep
+              step="2"
+              title="Review Your Results"
+              description="Get instant feedback on your readiness score. If you score 100%, proceed directly to registration."
+            />
+            <HowItWorksStep
+              step="3"
+              title="Get Guidance or Register"
+              description="If requirements are missing, receive detailed steps to complete them. Once ready, register and start trading."
             />
           </div>
-        </div>
+        </motion.section>
 
-        {/* Question Area */}
-        <div className="mt-8">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentQuestionIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
+        {/* --- 4. Final CTA --- */}
+        <section className="text-center">
+            <Link
+              href="/survey/questions"
+              className="inline-flex items-center justify-center gap-x-2 bg-[#00429E] text-white font-bold px-8 py-3 rounded-lg shadow-lg hover:bg-blue-800 transition-colors"
             >
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                {currentQuestion.question}
-              </h2>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Options */}
-        <div className="mt-8 space-y-4">
-          {currentQuestion.options.map((option, index) => (
-            <motion.button
-              key={index}
-              onClick={() => handleAnswer(index)}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full text-left p-5 bg-gray-100 rounded-lg font-medium text-gray-700 hover:bg-blue-100 hover:text-blue-800 transition-colors border-2 border-transparent focus:outline-none focus:border-blue-500"
-            >
-              {option}
-            </motion.button>
-          ))}
-        </div>
-      </motion.div>
+              <span>Start Your Assessment Now</span>
+              <ArrowRight size={20} />
+            </Link>
+        </section>
+      </div>
     </main>
   );
 };
 
-export default SurveyPage;
+// --- Reusable Sub-components for this page ---
+const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+  };
+
+const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string; }) => (
+    <motion.div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200" variants={cardVariants}>
+        <div className="mb-4">{icon}</div>
+        <h3 className="font-bold text-gray-900">{title}</h3>
+        <p className="text-sm text-gray-600 mt-1">{description}</p>
+    </motion.div>
+);
+
+const HowItWorksStep = ({ step, title, description }: { step: string; title: string; description: string; }) => (
+    <motion.div className="bg-white p-5 flex items-start gap-5 rounded-lg shadow-sm border border-gray-200" variants={cardVariants}>
+        <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-teal-600 text-white font-bold rounded-full">
+            {step}
+        </div>
+        <div>
+            <h3 className="font-bold text-gray-900">{title}</h3>
+            <p className="text-sm text-gray-600 mt-1">{description}</p>
+        </div>
+    </motion.div>
+);
+
+
+export default SurveyIntroPage;

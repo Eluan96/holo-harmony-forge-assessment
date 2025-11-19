@@ -1,122 +1,131 @@
 "use client";
 
-import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { Globe, TrendingUp, Users, CheckCircle } from "lucide-react";
 
-const SignUpPage = () => {
-  const [formData, setFormData] = useState({
-    businessName: "",
-    email: "",
-    password: "",
-  });
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    // In a real app, you would send this to your backend.
-    console.log("Registration Data:", formData);
-    setIsSubmitted(true);
-  };
-
-  if (isSubmitted) {
-    return (
-      <main className="bg-gray-50 flex items-center justify-center min-h-screen">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-center p-12 bg-white rounded-2xl shadow-xl"
-          >
-            <h1 className="text-4xl font-bold text-green-600">Thank You!</h1>
-            <p className="mt-4 text-lg text-gray-700">Your registration is complete.</p>
-            <Link href="/" className="mt-8 inline-block text-blue-600 hover:underline">
-              Return to Homepage
-            </Link>
-          </motion.div>
-      </main>
-    )
-  }
-
+// --- Main Page Component ---
+const SignUpHomePage = () => {
   return (
-    <main className="bg-gray-50 flex items-center justify-center min-h-screen py-12">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="bg-white rounded-2xl shadow-xl p-8 sm:p-12 w-full max-w-md"
-      >
-        <h1 className="text-3xl font-bold text-gray-900 text-center">
-          Create Your Account
-        </h1>
-        <p className="text-center text-gray-600 mt-2">
-          Join the future of African trade.
-        </p>
+    <main className="bg-gradient-to-b from-white via-[#F4F9FF] to-[#E9F5F3]">
+      <div className="max-w-5xl mx-auto px-6 py-20 sm:py-28 space-y-24 sm:space-y-32">
+        
+        {/* --- 1. Hero Section --- */}
+        <motion.section 
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="inline-flex items-center gap-x-2 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
+            <span>AfCFTA Digital Trade Platform</span>
+          </div>
+          <h1 className="mt-6 text-4xl sm:text-5xl font-extrabold text-[#002E5C]">
+            Join Africa's Digital Trade <br/> Revolution
+          </h1>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-600">
+            Connect with 54 African countries, access trade opportunities, and grow 
+            your business across the continent through the National AfCFTA Digital 
+            Trade Platform.
+          </p>
+          <div className="mt-8 flex items-center justify-center gap-x-4">
+            <Link href="/signup/form" className="bg-gradient-to-r from-blue-600 to-teal-500 text-white font-semibold px-6 py-2.5 rounded-md shadow-lg hover:opacity-90 transition-opacity">
+              Start Registration
+            </Link>
+            <Link href="/" className="font-semibold text-gray-700 px-6 py-2.5 rounded-md border border-gray-300 bg-white hover:bg-gray-50 transition-colors">
+              Learn More
+            </Link>
+          </div>
+        </motion.section>
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-          <div>
-            <label
-              htmlFor="businessName"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Business Name
-            </label>
-            <input
-              type="text"
-              name="businessName"
-              id="businessName"
-              required
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
+        {/* --- 2. Features Section --- */}
+        <motion.section
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+        >
+          <FeatureCard
+            icon={<Globe className="text-blue-600" />}
+            title="54 African Markets"
+            description="Access trade opportunities across all African countries with seamless cross-border transactions."
+          />
+          <FeatureCard
+            icon={<TrendingUp className="text-green-600" />}
+            title="Trade Growth"
+            description="Leverage AfCFTA's $3.4 trillion market to expand your business and reach new customers."
+          />
+          <FeatureCard
+            icon={<Users className="text-orange-500" />}
+            title="Business Network"
+            description="Connect with verified businesses, exporters, and trade partners across Africa."
+          />
+        </motion.section>
+
+        {/* --- 3. Why Register Section --- */}
+        <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.5 }}
+        >
+          <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm p-8 sm:p-12">
+            <h2 className="text-2xl font-bold text-center text-[#002E5C]">
+                Why Register with AfCFTA?
+            </h2>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
+                <BenefitItem text="Verified business profile on national platform" />
+                <BenefitItem text="Access to trade financing and support" />
+                <BenefitItem text="Real-time market intelligence and insights" />
+                <BenefitItem text="Simplified customs and regulatory compliance" />
+                <BenefitItem text="Priority access to trade missions and events" />
+                <BenefitItem text="Business matchmaking with African partners" />
+            </div>
           </div>
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              required
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              required
-              minLength={8}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <button
-              type="submit"
-              className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-            >
-              Register
-            </button>
-          </div>
-        </form>
-      </motion.div>
+        </motion.section>
+
+        {/* --- 4. Final CTA Section --- */}
+        <motion.section 
+          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.5 }}
+        >
+            <h2 className="text-3xl font-bold text-[#002E5C]">Ready to Go Continental?</h2>
+            <p className="mt-2 text-gray-600">Take the first step towards expanding your business across Africa. Complete your registration today.</p>
+            <div className="mt-6">
+                <Link href="/signup/form" className="bg-gradient-to-r from-teal-500 to-green-500 text-white font-semibold px-6 py-2.5 rounded-md shadow-lg hover:opacity-90 transition-opacity">
+                    Begin Registration Process
+                </Link>
+            </div>
+        </motion.section>
+      </div>
     </main>
   );
 };
 
-export default SignUpPage;
+
+// --- Reusable Sub-components for this page ---
+const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+};
+
+const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string; }) => (
+    <motion.div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200" variants={cardVariants}>
+        <div className="mb-4">{icon}</div>
+        <h3 className="font-bold text-gray-800">{title}</h3>
+        <p className="text-sm text-gray-600 mt-1">{description}</p>
+    </motion.div>
+);
+
+const BenefitItem = ({ text }: { text: string }) => (
+    <div className="flex items-center gap-x-3">
+        <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
+        <span className="text-gray-700">{text}</span>
+    </div>
+);
+
+export default SignUpHomePage;

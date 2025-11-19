@@ -85,7 +85,7 @@ const Navbar = () => {
           <div className="hidden md:block">
             <div className="flex items-center space-x-4">
               <Link
-                href="/signin"
+                href="/coming-soon?page=signin"
                 className="text-[#002E5C] hover:text-white hover:bg-teal-500 text-sm font-medium px-4 py-2 rounded-lg"
               >
                 Sign In
