@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
+import { MoveLeft } from 'lucide-react';
 
-// --- Reusable Icon Components ---
+
 const RocketIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -22,18 +23,13 @@ const RocketIcon = () => (
   </svg>
 );
 
-const ArrowLeftIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-    </svg>
-);
 
 
 const ComingSoonPage = () => {
   const searchParams = useSearchParams();
   const page = searchParams.get("page") || "This Page";
 
-  // Capitalize the first letter for display
+  
   const pageName = page.charAt(0).toUpperCase() + page.slice(1);
 
   const containerVariants = {
@@ -90,7 +86,7 @@ const ComingSoonPage = () => {
               href="/"
               className="inline-flex items-center gap-x-2 bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-colors"
             >
-              <ArrowLeftIcon />
+              <MoveLeft />
               <span>Go Back Home</span>
             </Link>
           </motion.div>

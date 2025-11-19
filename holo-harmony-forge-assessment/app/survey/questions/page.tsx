@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { HelpCircle } from "lucide-react";
 
-// --- Survey Data (12 Questions) ---
+
 const surveyQuestions = [
     { question: "Is your business registered with CAC?", options: ["Yes, my business is registered", "No, not yet registered"] },
     { question: "Do you have a corporate bank account for your business?", options: ["Yes, we do", "No, we use a personal account"] },
@@ -39,7 +39,7 @@ const SurveyQuestionsPage = () => {
     if (currentQuestionIndex < surveyQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      // End of survey
+      
       calculateAndSubmit(newAnswers);
     }
   };
@@ -61,13 +61,13 @@ const SurveyQuestionsPage = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="w-full max-w-2xl"
       >
-        {/* Header */}
+      
         <div className="text-center">
             <p className="text-sm font-bold text-blue-700 tracking-wider">READINESS CHECK</p>
             <h1 className="text-3xl font-bold text-gray-800 mt-1">AfCFTA Readiness Survey</h1>
         </div>
 
-        {/* Progress Bar */}
+    
         <div className="mt-8">
           <div className="flex justify-between items-center text-sm font-medium text-gray-600">
             <span>Question {currentQuestionIndex + 1} of {surveyQuestions.length}</span>
@@ -83,7 +83,7 @@ const SurveyQuestionsPage = () => {
           </div>
         </div>
 
-        {/* Question Area */}
+     
         <div className="mt-12 text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-teal-400 to-green-500 shadow-lg">
             <HelpCircle size={32} className="text-white"/>
@@ -93,7 +93,7 @@ const SurveyQuestionsPage = () => {
           </h2>
         </div>
         
-        {/* Options */}
+     
         <div className="mt-8 space-y-4">
           {currentQuestion.options.map((option, index) => (
             <button
@@ -125,7 +125,7 @@ const SurveyQuestionsPage = () => {
           ))}
         </div>
 
-        {/* Next Button */}
+      
         <div className="mt-10">
           <button
             onClick={handleNext}

@@ -12,7 +12,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-// --- Configuration for the multi-step form ---
+
 const steps = [
   "Business Information",
   "Contact Details",
@@ -32,10 +32,10 @@ const initialFormData = {
   businessAddress: "",
   state: "",
   lga: "",
-  // ...fields for other steps would go here
+  
 };
 
-// --- Main Page Component ---
+
 const SignUpFormPage = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState(initialFormData);
@@ -52,7 +52,7 @@ const SignUpFormPage = () => {
     }
   };
 
-  // Helper function to update form state
+ 
   const updateFormData = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
@@ -60,7 +60,7 @@ const SignUpFormPage = () => {
   return (
     <main className="bg-[#F4F8FF] min-h-screen p-4 sm:p-8">
       <div className="max-w-5xl mx-auto">
-        {/* --- Header --- */}
+        
         <header className="flex justify-between items-center">
           <div>
             <h1 className="text-2xl font-bold text-gray-800">
@@ -74,10 +74,10 @@ const SignUpFormPage = () => {
           </button>
         </header>
 
-        {/* --- Stepper --- */}
+       
         <RegistrationStepper currentStep={currentStep} steps={steps} />
 
-        {/* --- Form Card --- */}
+        
         <motion.div
           key={currentStep}
           initial={{ opacity: 0, y: 20 }}
@@ -94,11 +94,11 @@ const SignUpFormPage = () => {
             </p>
 
             <div className="mt-6 border-t border-gray-200 pt-6">
-              {/* --- Conditionally Render Form for the current step --- */}
+              
               {currentStep === 1 && (
                 <BusinessInformationForm data={formData} update={updateFormData} />
               )}
-              {/* Placeholders for other steps */}
+             
               {currentStep > 1 && (
                  <div className="text-center py-16">
                     <h3 className="text-lg font-semibold text-gray-500">
@@ -109,7 +109,7 @@ const SignUpFormPage = () => {
             </div>
           </div>
 
-          {/* --- Form Footer / Navigation --- */}
+          
           <div className="bg-gray-50 p-5 rounded-b-xl flex justify-between items-center border-t border-gray-200">
             <button
               onClick={handleBack}
@@ -139,7 +139,7 @@ const SignUpFormPage = () => {
 };
 
 
-// --- Stepper Sub-component ---
+
 const RegistrationStepper = ({ currentStep, steps }: { currentStep: number; steps: string[]; }) => {
     return (
         <div className="mt-8 flex items-center justify-between">
@@ -162,7 +162,7 @@ const RegistrationStepper = ({ currentStep, steps }: { currentStep: number; step
                                 {step}
                             </p>
                         </div>
-                        {/* Connecting Line */}
+                        
                         {stepNumber < steps.length && (
                             <div className={`flex-1 h-1 mx-2 ${isCompleted ? 'bg-blue-600' : 'bg-gray-200'}`}></div>
                         )}
@@ -174,7 +174,7 @@ const RegistrationStepper = ({ currentStep, steps }: { currentStep: number; step
 };
 
 
-// --- Form for Step 1: Business Information ---
+
 const BusinessInformationForm = ({ data, update }: { data: typeof initialFormData; update: Function; }) => {
     const InputField = ({ icon, label, name, placeholder, value, isOptional = false }: any) => (
         <div>

@@ -74,10 +74,7 @@ const Hero = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              {/* <button className="flex items-center justify-center gap-x-2 bg-[#00429E] text-white px-7 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-300">
-                <span>Get Started</span>
-                <MoveRight />
-              </button> */}
+
 
 <Link
   href="/survey"

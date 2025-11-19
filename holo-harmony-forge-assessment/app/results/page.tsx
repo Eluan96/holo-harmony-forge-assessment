@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
+import { CircleCheckBig } from "lucide-react";
+import { OctagonX } from 'lucide-react';
 
-const CheckCircleIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>;
-const XCircleIcon = () => <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>;
 
 const ResultsPage = () => {
   const searchParams = useSearchParams();
@@ -27,7 +27,11 @@ const ResultsPage = () => {
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {isSuccess ? <CheckCircleIcon /> : <XCircleIcon />}
+          {isSuccess ? (
+            <CircleCheckBig size={50} color="white" />
+          ) : (
+            <OctagonX size={50} color="white"/>
+          )}
         </motion.div>
 
         <h1 className="mt-8 text-4xl font-extrabold text-gray-900">

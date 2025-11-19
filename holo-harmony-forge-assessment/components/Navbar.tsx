@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu } from 'lucide-react';
-import { X } from 'lucide-react';
+import { Menu } from "lucide-react";
+import { X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,7 +37,6 @@ const Navbar = () => {
   };
 
   return (
-    
     <nav className="bg-white shadow-sm sticky top-0 z-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -107,11 +106,7 @@ const Navbar = () => {
               aria-expanded="false"
             >
               <span className="sr-only">Open main menu</span>
-              {!isOpen ? (
-                <Menu />
-              ) : (
-                <X />
-              )}
+              {!isOpen ? <Menu /> : <X />}
             </button>
           </div>
         </div>

@@ -4,13 +4,13 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Globe, TrendingUp, Users, CheckCircle } from "lucide-react";
 
-// --- Main Page Component ---
+
 const SignUpHomePage = () => {
   return (
     <main className="bg-gradient-to-b from-white via-[#F4F9FF] to-[#E9F5F3]">
       <div className="max-w-5xl mx-auto px-6 py-20 sm:py-28 space-y-24 sm:space-y-32">
         
-        {/* --- 1. Hero Section --- */}
+       
         <motion.section 
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -38,7 +38,7 @@ const SignUpHomePage = () => {
           </div>
         </motion.section>
 
-        {/* --- 2. Features Section --- */}
+     
         <motion.section
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
           initial="hidden"
@@ -63,7 +63,7 @@ const SignUpHomePage = () => {
           />
         </motion.section>
 
-        {/* --- 3. Why Register Section --- */}
+       
         <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ const SignUpHomePage = () => {
           </div>
         </motion.section>
 
-        {/* --- 4. Final CTA Section --- */}
+       
         <motion.section 
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -107,7 +107,7 @@ const SignUpHomePage = () => {
 };
 
 
-// --- Reusable Sub-components for this page ---
+
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },

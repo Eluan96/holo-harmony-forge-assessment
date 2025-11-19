@@ -34,19 +34,19 @@ const Footer = () => {
             </p>
             <div className="mt-6 flex space-x-4">
               <a
-                href="#"
+                href="/coming-soon"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
               >
                 <Facebook />
               </a>
               <a
-                href="#"
+                href="/coming-soon"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
               >
                 <Twitter />
               </a>
               <a
-                href="#"
+                href="/coming-soon"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors"
               >
                 <Linkedin />
@@ -59,27 +59,27 @@ const Footer = () => {
             <h3 className="font-bold text-white text-lg">Quick Links</h3>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="/" className="hover:text-white">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="#platform-features" className="hover:text-white">
                   Features
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="#how-it-works" className="hover:text-white">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="#benefits" className="hover:text-white">
                   Benefits
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="/coming-soon?page=pricing" className="hover:text-white">
                   Pricing
                 </Link>
               </li>
@@ -90,27 +90,27 @@ const Footer = () => {
             <h3 className="font-bold text-white text-lg">Resources</h3>
             <ul className="mt-4 space-y-3 text-sm">
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="/coming-soon?page=documentation" className="hover:text-white">
                   Documentation
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="coming-soon?page=knowledge-hub" className="hover:text-white">
                   Knowledge Hub
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="coming-soon?page=trade-guides" className="hover:text-white">
                   Trade Guides
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="coming-soon?page=faqs" className="hover:text-white">
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white">
+                <Link href="coming-soon?page=support" className="hover:text-white">
                   Support
                 </Link>
               </li>
@@ -147,13 +147,13 @@ const Footer = () => {
             rights reserved.
           </p>
           <div className="flex gap-x-6 mt-4 sm:mt-0">
-            <Link href="#" className="hover:text-white">
+            <Link href="/coming-soon?page=privacy-policy" className="hover:text-white">
               Privacy Policy
             </Link>
-            <Link href="#" className="hover:text-white">
+            <Link href="/coming-soon?page=terms-of-service" className="hover:text-white">
               Terms of Service
             </Link>
-            <Link href="#" className="hover:text-white">
+            <Link href="/coming-soon?page=cookie-policy" className="hover:text-white">
               Cookie Policy
             </Link>
           </div>

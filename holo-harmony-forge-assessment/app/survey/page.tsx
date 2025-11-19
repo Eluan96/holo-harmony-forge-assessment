@@ -4,12 +4,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Globe, TrendingUp, HelpCircle, CheckCircle } from "lucide-react";
 
-// --- Main Component ---
+
 const SurveyIntroPage = () => {
   return (
     <main className="bg-[#F4F8FF] py-16 sm:py-24">
       <div className="max-w-4xl mx-auto px-6 space-y-20">
-        {/* --- 1. Header Section --- */}
+       
         <motion.section
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ const SurveyIntroPage = () => {
           </div>
         </motion.section>
 
-        {/* --- 2. Features Section --- */}
+       
         <motion.section
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
           initial="hidden"
@@ -73,7 +73,7 @@ const SurveyIntroPage = () => {
           />
         </motion.section>
 
-        {/* --- 3. How It Works Section --- */}
+       
         <motion.section
             initial="hidden"
             whileInView="visible"
@@ -103,7 +103,7 @@ const SurveyIntroPage = () => {
           </div>
         </motion.section>
 
-        {/* --- 4. Final CTA --- */}
+       
         <section className="text-center">
             <Link
               href="/survey/questions"
@@ -118,7 +118,7 @@ const SurveyIntroPage = () => {
   );
 };
 
-// --- Reusable Sub-components for this page ---
+
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
