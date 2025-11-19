@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FileCheck } from "lucide-react";
 import { Search } from "lucide-react";
 import { CircleCheckBig } from "lucide-react";
+import Link from "next/link";
 
 const accessPoints = [
   {
@@ -93,9 +94,12 @@ const QuickAccess = () => {
               <p className="mt-4 text-base text-gray-600 flex-grow">
                 {point.description}
               </p>
-              <button className="text-sm mt-8 w-full bg-[#00429E] text-white font-semibold py-1.5 px-6 rounded-lg hover:bg-blue-800 transition-colors duration-300">
+              <Link
+                href="/coming-soon"
+                className="text-sm mt-8 w-full bg-[#00429E] text-white font-semibold py-1.5 pl-28 rounded-lg hover:bg-blue-800 transition-colors duration-300"
+              >
                 {point.buttonText}
-              </button>
+              </Link>
             </motion.div>
           ))}
         </motion.div>

@@ -10,6 +10,7 @@ import { CreditCard } from "lucide-react";
 import { Users } from "lucide-react";
 import { BookOpen } from "lucide-react";
 import { ChartColumn } from "lucide-react";
+import Link from "next/link";
 
 const features: {
   icon: ReactNode;
@@ -92,7 +93,7 @@ const Features = () => {
             comprehensive platform
           </p>
         </div>
-
+        <Link href="/coming-soon">
         <motion.div
           className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4"
           variants={containerVariants}
@@ -116,6 +117,7 @@ const Features = () => {
             </motion.div>
           ))}
         </motion.div>
+        </Link>
       </div>
     </section>
   );

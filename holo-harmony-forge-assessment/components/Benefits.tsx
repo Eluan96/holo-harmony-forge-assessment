@@ -6,6 +6,7 @@ import { TrendingUp } from "lucide-react";
 import { Earth } from "lucide-react";
 import { Lock } from "lucide-react";
 import { Zap } from "lucide-react";
+import Link from "next/link";
 
 const benefits: {
   icon: ReactNode;
@@ -72,7 +73,7 @@ const Benefits = () => {
             Transforming African trade through digital innovation
           </p>
         </div>
-
+        <Link href="/coming-soon">
         <motion.div
           className="mt-20 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:gap-12"
           variants={containerVariants}
@@ -98,6 +99,7 @@ const Benefits = () => {
             </motion.div>
           ))}
         </motion.div>
+        </Link>
       </div>
     </section>
   );

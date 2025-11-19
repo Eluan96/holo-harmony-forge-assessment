@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Globe } from "lucide-react";
 import { TrendingUp } from "lucide-react";
 import { MoveRight } from "lucide-react";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -73,13 +74,21 @@ const Hero = () => {
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="flex items-center justify-center gap-x-2 bg-[#00429E] text-white px-7 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-300">
+              {/* <button className="flex items-center justify-center gap-x-2 bg-[#00429E] text-white px-7 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-300">
                 <span>Get Started</span>
                 <MoveRight />
-              </button>
-              <button className="bg-white text-gray-800 px-7 py-3 rounded-xl font-semibold border border-gray-200 hover:bg-teal-300 hover:text-white transition-colors duration-300 shadow-sm">
+              </button> */}
+
+<Link
+  href="/survey"
+  className="flex items-center justify-center gap-x-2 bg-blue-600 text-white px-7 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-blue-300"
+>
+  <span>Get Started</span>
+  <MoveRight /> 
+</Link>
+              <Link href="/coming-soon" className="bg-white text-gray-800 px-7 py-3 rounded-xl font-semibold border border-gray-200 hover:bg-teal-300 hover:text-white transition-colors duration-300 shadow-sm">
                 Learn More
-              </button>
+              </Link>
             </div>
 
             <div className="mt-12 flex flex-col sm:flex-row gap-8 justify-center lg:justify-start">

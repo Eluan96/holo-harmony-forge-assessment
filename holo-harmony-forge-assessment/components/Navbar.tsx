@@ -162,7 +162,7 @@ const Navbar = () => {
                   Sign In
                 </Link>
                 <Link
-                  href="/get-started"
+                  href="/survey"
                   className="ml-4 bg-[#002E5C] text-white px-4 py-2 rounded-md text-base font-medium hover:bg-[#00429E]"
                 >
                   Get Started
