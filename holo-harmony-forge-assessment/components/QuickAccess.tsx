@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { FileCheck } from "lucide-react";
 import { Search } from "lucide-react";
 import { CircleCheckBig } from "lucide-react";
@@ -34,7 +34,7 @@ const accessPoints = [
 ];
 
 const QuickAccess = () => {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -44,7 +44,7 @@ const QuickAccess = () => {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
